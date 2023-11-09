@@ -2,7 +2,9 @@
 import Navbar from "./components/Navbar";
 import TextForm from "./components/textForm";
 import Alert from "./components/Alert";
+import About from "./components/About";
 import React, { useState } from "react";
+import { BrowserRouter as Router,  Route, Routes,} from "react-router-dom";
 
 function App() {
   const [mode, setmode] = useState("light");
@@ -20,12 +22,10 @@ function App() {
     if (mode === "light") {
       setmode("dark");
       document.body.style.backgroundColor = "black";
-      document.body.style.color = "black";
       showAlert("Dark mode has been enable", "success");
     } else {
       setmode("light");
       document.body.style.backgroundColor = "white";
-      document.body.style.color = "white";
       showAlert("Light mode has been enable", "success");
     }
   };
@@ -34,10 +34,14 @@ function App() {
     <>
         <Navbar heading="TextTutorials" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
-        <div className="container my-3">
-        <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode}/>
-        {/* <About/> */}
+        <Router>
+        <div className="container my-2">
+        <Routes>
+        <Route path="/" element={<TextForm showAlert={showAlert} heading="Try TextEditor - Word Counter, Character Counter, Remove extra spaces" mode={mode}/>}/>
+        <Route path="/about" element={<About/>} mode={mode}/>
+        </Routes>
         </div>
+        </Router>
     </>
   );
 }
