@@ -32,15 +32,19 @@ function App() {
 
   return (
     <>
+        
+        <Router>
+          <Routes>
+        
+          </Routes>
+        </Router>
+        <Router>
         <Navbar heading="TextTutorials" mode={mode} toggleMode={toggleMode} />
         <Alert alert={alert} />
-        <Router>
-        <div className="container my-2">
-        <Routes>
-        <Route path="/" element={<TextForm showAlert={showAlert} heading="Try TextEditor - Word Counter, Character Counter, Remove extra spaces" mode={mode}/>}/>
-        <Route path="/about" element={<About/>} mode={mode}/>
-        </Routes>
-        </div>
+          <Routes>
+            <Route path="/" element={<TextForm showAlert={showAlert} heading="Try TextEditor - Word Counter, Character Counter, Remove extra spaces" mode={mode}/>}/>
+            <Route path="/about" element={<About mode={mode}/>} />
+           </Routes>
         </Router>
     </>
   );

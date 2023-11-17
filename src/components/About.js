@@ -7,8 +7,8 @@ export default function About(props) {
   //   backgroundSize: "cover",
   // });
   let myStyle = {
-    color: props.mode ==='dark'? "white":"black",
-    backgroundcolor: props.mode ==='dark'? "black":"white"
+    color: props.mode ==='light'? "black":"black",
+    backgroundcolor: props.mode ==='light'? "black":"white"
   }
   // const [btntext, setBtntext] = useState("Enable Dark Mode");
   // const toggleStyle = () => {
@@ -32,9 +32,9 @@ export default function About(props) {
   // };
   
   return (
-    <div className="container my-3 ">
+    <div className="container my-3 " style={{color: props.mode === "dark" ? "black" : "grey",}}>
       <h1 className="container my-3">About Us</h1>
-      <div className="accordion" style={{backgroundColor: props.mode==='dark'? 'white':'black'}} id="accordionExample">
+      <div className="accordion" style={{backgroundColor: props.mode==='light'? 'black':'light'}} id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header" id="headingOne">
             <button
